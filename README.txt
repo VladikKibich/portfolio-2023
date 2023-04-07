@@ -3,3 +3,7 @@
 git init
 git add .
 
+Установка gulp покеты и плагины
+
+gulp init npm
+

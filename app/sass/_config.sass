@@ -3,20 +3,39 @@
 @import '../../node_modules/bootstrap/scss/bootstrap-grid'
 
 // Переменные
-$title-font: Oswald
-$title-size: 22px
+$title-font: 'Sintony', sans-serif
+$title-size: 32px
+
+$text-font: 'Poppins', sans-serif
 $text-size: 16px
-$text-font: Roboto
 
 // Глобальный CSS
-
 *
   padding: 0
   margin: 0
 
+html
+  position: relative
+  overflow-x: hidden
+  min-height: 100%
+
 body
+  height: 100%
   font-family: $text-font
   font-size: $text-size
+  background: linear-gradient(156.24deg, #553E3E -0.25%, #0F161C 37.67%)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  font-size: $text-size
+  color: #FFFFFF
+
+h1,h2,h3
+  font-family: $title-font
 
 a
   text-decoration: none
+  font-family: $text-font
+
+ul
+  list-style: none

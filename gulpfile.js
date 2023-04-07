@@ -25,8 +25,8 @@ function styles() {
 // JS
 function scripts() {
   return src([
-    'app/js/app.js',
-    'node_modules/swiper/swiper-bundle.js'
+    'node_modules/swiper/swiper-bundle.js',
+    'app/js/app.js'
   ])
     .pipe(concat('app.min.js'))
     .pipe(uglify())
@@ -45,10 +45,10 @@ function fonts() {
     }))
     .pipe(dest('app/'));
 }
-
-function images(params) {
+// IMAGES
+function images() {
   return src('app/img/*.*')
-    .pipe(dest('app/img/'));
+    .pipe(dest('dist/img/'));
 }
 
 // WATCH
@@ -92,10 +92,8 @@ function buildDist() {
 exports.styles = styles;
 exports.scripts = scripts;
 exports.fonts = fonts;
-exports.images = images;
 exports.watching = watching;
 exports.browsersync = browsersync;
 
 exports.build = series(cleanDist, buildDist);
-exports.fonts = parallel(fonts, watching);
-exports.default = parallel(styles, scripts, images, browsersync, watching);
+exports.default = parallel(styles, scripts, browsersync, watching);
