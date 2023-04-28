@@ -26,7 +26,7 @@ function styles() {
 function scripts() {
   return src([
     'node_modules/swiper/swiper-bundle.js',
-    'app/js/app.js'
+    'app/js/app.js',
   ])
     .pipe(concat('app.min.js'))
     .pipe(uglify())
@@ -45,10 +45,10 @@ function fonts() {
     }))
     .pipe(dest('app/'));
 }
-// IMAGES
+
 function images() {
   return src('app/img/*.*')
-    .pipe(dest('dist/img/'));
+    .pipe(dest('app/img/'));
 }
 
 // WATCH
@@ -56,7 +56,6 @@ function watching() {
   watch(['app/sass/*.sass'], styles)
   watch(['app/js/app.js'], scripts)
   watch(['app/fonts/*.*'], fonts)
-  watch(['app/img/*.*'], images)
   watch(['app/*.html']).on('change', browserSync.reload)
 }
 
@@ -82,7 +81,7 @@ function buildDist() {
       'app/css/style.min.css',
       'app/js/app.min.js',
       'app/fonts/*.*',
-      'app/img/*.*',
+      'app/img/**/*.*',
       'app/**/*.html',
     ], { base: 'app' }
   )
@@ -92,8 +91,10 @@ function buildDist() {
 exports.styles = styles;
 exports.scripts = scripts;
 exports.fonts = fonts;
+exports.images = images;
 exports.watching = watching;
 exports.browsersync = browsersync;
 
 exports.build = series(cleanDist, buildDist);
-exports.default = parallel(styles, scripts, browsersync, watching);
+exports.fonts = series(fonts, watching);
+exports.default = parallel(styles, images, scripts, browsersync, watching);

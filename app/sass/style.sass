@@ -1,35 +1,44 @@
 @import 'app/sass/_config'
-
 // HEADER
-.header-top
+
+.header-top,
+.menu-top,
+.menu-wrapp,
+.soc-wrapp
   display: flex
+
+.header-top
   justify-content: space-between
   align-items: center
-  padding: 40px 0px
+  margin: 40px 0 60px 0
+.menu-top
+  justify-content: center
 
-.menu-wrapp, .menu, .soc
-  display: flex
+.menu-wrapp
   align-items: center
-.menu
-  li
-    margin: 0 40px
+.menu-item
+  margin-right: 40px
 
-.manu-link
-  display: block
+.menu-link
   color: #fff
+  font-size: 18px
+  text-transform: lowercase
   &::after
     content: ''
     display: block
-    margin: 5px auto
-    width: 10%
     height: 1px
+    width: 100%
     background: #fff
-    transition: width .50s
+    transform: translateY(10px) scale(0)
+    transition: all 0.6s
   &:hover
-    &::after
-      width: 100%
+    &:after
+      transform: translateY(10px) scale(1)
 
-.soc
+.soc-item
+  margin-right: 20px
+
+.soc-wrapp
   li
     margin: 0 20px
     background: #fff
@@ -46,27 +55,466 @@
     height: 40px
     border-radius: 100%
     background: linear-gradient(137.05deg, #AA544E 44.55%, #97413B 85.13%)
-    transition: bacgraund .50s, box-shadow .50s
+    transition: bacgraund .60s, box-shadow .50s
     &:hover
       background: linear-gradient(137.05deg, #AA544E 49.38%, #97413B 85.13%)
       box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.19), inset 8px 5px 10px #8E3832
 
-  // SLIDER
+.soc-img
+  height: 20px
+
+// SLIDER
+
+.slider-flex-container
+  display: flex
+  position: relative
+  flex-wrap: wrap
 
 .swiper
-  width: 300px
-  height: 300px
+  width: 500px
+
+.img-zize
+  display: block
+  width: 100%
+
+.swiper-text
+  align-self: center
+  flex: 1
+  width: 330px
+  h1
+    padding: 0 10px 20px 10px
+    font-size: $title-size
+  p
+    padding: 0 10px 20px 10px
+
+.swiper-img
+  padding: 50px
+  background: #CAB1A6
+  border-radius: 3px
+  margin: 0 30px
+  flex: 2
+
+.swiper-info
+  flex: 1
+  width: 280px
+
+.font-info-wrapp
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.font-size, .font-famaly
+  width: 100%
+  height: 50px
+  padding: 20px
+  background: #0F161C
+  border-radius: 3px
+  margin-bottom: 20px
+  p
+    line-height: 50px
+    text-align: center
+
+.color-wrapp
+  display: flex
+  justify-content: space-between
+  padding: 20px
+  background: grey
+  div
+    width: 40px
+    height: 20px
+
+.color-item__1
+  background: #252521
+.color-item__2
+  background: #2E3329
+.color-item__3
+  background: #F6EBD7
+.color-item__4
+  background: #9E5B2C
+
+.color-number
+  font-size: 14px
+
+.prev,
+.next
   position: absolute
-  left: 50%
-  top: 50%
-  margin-left: -150px
-  margin-top: -150px
+  cursor: pointer
+  background: linear-gradient(95.96deg, #0A1117 0%, #161D23 100.73%)
+  border-radius: 3px
+  text-transform: uppercase
+  color: #fff
+  text-align: center
+  padding: 20px 40px
+  filter: drop-shadow(0px -7px 4px rgba(255, 255, 255, 0.09)) drop-shadow(2px 5px 3px #010104)
+  text-shadow: 0px 4px 5px #030303, 1px -3px 5px rgba(255, 255, 255, 0.19)
+  transition: box-shadow .6s, background .6s, color .6s, font-weight .6s
+  z-index: 999 !important
+  &:hover,&:active,&:focus
+    box-shadow: none
+    text-shadow: none
+    background: rgba(202, 177, 166, 1)
+    color: rgba(20, 27, 33, 1)
+    font-weight: bold
 
-.swiper-slide
+.prev
+  left: 5px
+  bottom: 5px
+.next
+  right: 5px
+  bottom: 5px
+
+.card-wrapper
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+
+// SERVICE
+.service
+  margin: 120px 0
+
+.card
+  width: 350px
+  border-radius: 30px 30px 0px 0px
+  background: rgba(10, 17, 23, 1)
+.bg-cod
+  background-image: url(../img/bg/bg-cod.png)
   background-position: center
-  background-size: cover
+  background-size: 130%
+  background-repeat: no-repeat
+.bg-design
+  background-image: url(../img/bg/bg-design.png)
+  background-position: center
+  background-size: 130%
+  background-repeat: no-repeat
+.bg-ads
+  background-image: url(../img/bg/bg-ads.png)
+  background-position: center
+  background-size: 130%
+  background-repeat: no-repeat
 
-.swiper-slide
-  img
+.card-bg-wrapp
+  position: relative
+  overflow: hidden
+  border-radius: 30px 30px 0px 0px
+  height: 130px
+  padding: 20px 40px
+  transition: background-size .60s
+  cursor: pointer
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background: rgba(0, 0, 0, 0.5)
+  h2
+    position: relative
+    text-align: center
+    line-height: 130px
+    z-index: 999
+
+.img-scale
+  background-size: 170%
+  &::before
+    transition: background-color .6s
+    background-color: transparent
+  &-out
+    background-size: 130%
+
+.card-content-wrapp
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  padding: 30px 15px
+
+.card-text
+  padding: 10px
+
+.card-btn
+  display: block
+  width: 150px
+  border-radius: 3px
+  text-align: center
+  background: #141B21
+  border: 1px solid rgba(0, 2, 8, 0.1)
+  box-shadow: -4px -4px 20px rgba(255, 255, 255, 0.15), 4px 4px 20px #000208
+  padding: 20px
+  margin: 30px 0
+  color: #fff
+  transition: box-shadow .6s, background .6s, color .6s, font-weight .6s
+  &:hover,&:active,&:focus
+    box-shadow: none
+    background: rgba(202, 177, 166, 1)
+    color: rgba(20, 27, 33, 1)
+    font-weight: bold
+
+// ABOUT ME
+
+.abotu-wrapp
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+.about-left-col, .about-right-col
+  align-self: center
+  flex: 1
+
+.about-left-col
+  margin-right: 40px
+  p
+    margin: 20px 0
+
+.about-right-col
+  background: url(designer_works_in_a_cozy_office_fd7762ea-1692-4c96-8e67-8d84bea80784.png)
+  filter: drop-shadow(-6px -6px 10px rgba(255, 255, 255, 0.08)) drop-shadow(6px 6px 5px #080E14)
+  border-radius: 30px
+  overflow: hidden
+
+.contact-wrapp
+  display: flex
+  justify-content: space-between
+
+.contact-left-col, .contact-right-col
+  flex: 1
+
+.contact-left-col
+  background-image: url(../img/contact-left-column.png)
+  background-position: center
+  background-size: 120%
+  background-repeat: no-repeat
+  margin-right: 20px
+  min-height: 300px
+
+.contact-left-col
+  margin-left: 20px
+  filter: drop-shadow(-6px -6px 10px rgba(255, 255, 255, 0.08)) drop-shadow(6px 6px 5px #080E14)
+
+.contact-form
+  display: flex
+  flex-direction: column
+  padding: 40px
+  background: linear-gradient(95.96deg, #0A1117 0%, #161D23 100.73%)
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.08), 6px 6px 5px #080E14
+
+.col-wrapp
+  display: flex
+  justify-content: space-between
+  input
+    width: 40%
+    height: 50px
+    background: linear-gradient(95.96deg, #0A1117 0%, #161D23 100.73%)
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.08), 6px 6px 5px #080E14
+    border-radius: 3px
+    border: none
+
+.contact-phone
+  height: 50px
+  background: linear-gradient(95.96deg, #0A1117 0%, #161D23 100.73%)
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.08), 6px 6px 5px #080E14
+  border-radius: 3px
+  margin: 20px 0
+
+.contact-massage
+  background: linear-gradient(95.96deg, #0A1117 0%, #161D23 100.73%)
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.08), 6px 6px 5px #080E14
+  border-radius: 3px
+  border: none
+  margin: 20px 0
+  padding: 20px
+
+.contact-form-btn
+  height: 50px
+  background: linear-gradient(95.96deg, #0A1117 0%, #161D23 100.73%)
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.08), 6px 6px 5px #080E14
+  border-radius: 3px
+  font-family: $title-font
+  text-transform: uppercase
+  letter-spacing: 0.395em
+  cursor: pointer
+  transition: letter-spacing .6s
+  &:hover
+    letter-spacing: 0
+
+// REVIEWS
+.reviews-wrapp
+  overflow-x: hidden
+  padding: 40px
+  margin: 40px
+  display: flex
+  justify-content: center
+
+.swiper-container
+  width: 100%
+  height: 100%
+  background: linear-gradient(95.96deg, #0A1117 0%, #161D23 100.73%)
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.08), 6px 6px 12px #080E14
+  padding: 20px
+
+.swiper-slide-wrapp
+  display: flex
+  flex-direction: column
+  align-items: center
+  p
+    margin: 20px 0
+    width: 80%
+.swiper-slide-reviews
+  text-align: center
+  font-size: 18px
+  display: flex
+  justify-content: center
+  align-items: center
+  & img
     display: block
     width: 100%
+    height: 100%
+    object-fit: cover
+
+.swiper-pagination-reviews
+  display: flex
+  justify-content: center
+
+.swiper-pagination-bullet
+  background: #D9D9D9
+  opacity: 1
+  width: 15px
+  height: 15px
+
+.swiper-pagination-bullet-active
+  background: linear-gradient(137.05deg, #97413B 15.04%, #AA544E 85.13%)
+  border: 1px solid #A34D47
+  box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.19), 1px 1px 10px rgba(166, 80, 74, 0.25)
+
+.contact-wrapp
+  display: flex
+
+.contact-item
+  display: flex
+  flex-direction: column
+  width: 400px
+  height: 400px
+  padding: 40px
+  margin: 40px 20px
+  background: linear-gradient(95.96deg, #0A1117 0%, #161D23 100.73%)
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.08), 6px 6px 5px #080E14
+  border-radius: 3px
+  justify-content: center
+  h3
+    font-size: 32px
+    margin: 20px 0
+    &::after
+      content: ''
+      display: block
+      width: 50%
+      margin-top: 10px
+      border: 5px solid #CAB1A6
+      border-radius: 3px
+      box-shadow: 0px -2px 5px rgba(255, 255, 255, 0.27), 1px 2px 7px #03080E
+  span
+    margin: 5px 0
+
+.footer-bottoom
+  margin: 20px 0
+  padding: 40px 10px
+  background: #A6504A
+  border-radius: 3px
+  text-align: center
+
+// MEDIA------------------------------
+@media screen and (max-width: 1388px)
+  .swiper-img
+    padding: 0
+    margin: 0 40px
+    background: transparent
+
+  .prev
+    left: 0px
+    bottom: 0px
+  .next
+    right: 0px
+    bottom: 0px
+
+@media screen and (max-width: 1200px)
+
+  .menu-top
+    display: none
+
+  .slider-flex-container
+    align-items: center
+    flex-direction: column
+
+  .swiper-text, .swiper-img, .swiper-info
+    width: 80%
+
+  .swiper-img
+    margin-top: 40px
+    margin-bottom: 40px
+
+  .slider-btn-wrap
+    position: relative
+
+  .prev
+    left: 50%
+    bottom: 10px
+    margin-left: 5px
+
+  .next
+    right: 50%
+    bottom: 10px
+    margin-right: 5px
+
+  .card-wrapper
+    justify-content: center
+
+  .card
+    margin: 20px
+
+  .abotu-wrapp
+    flex-direction: column
+    align-items: center
+
+  .about-right-col
+    width: 100%
+    background-position: bottom
+
+  .about-left-col
+    margin: 0
+
+  .contact-wrapp
+    flex-direction: column
+    align-items: center
+
+  .contact-left-col
+    margin: 40px 0
+    background-position: bottom
+    width: 90%
+    order: 2
+
+  .contact-right-col
+    width: 90%
+
+@media screen and (max-width: 800px)
+  .wrapper
+    padding: 0
+
+  .about, .contact
+    padding: 10px
+  .swiper-text
+    margin: 0
+  .card
+    width: 100%
+
+  .img-scale
+    background-size: 100%
+    &-out
+      background-size: 100%
+
+  .next, .prev
+    display: none
+
+  .contact-item
+    width: 200px
+    height: 200px
+
+  footer
+    padding: 0 10px
